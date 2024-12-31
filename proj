@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+        .header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .card {
+            margin: 10px;
+        }
+        .table-container {
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Company Dashboard</h1>
+</div>
+
+<div class="container">
+   
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            Company Details
+        </div>
+        <div class="card-body">
+            <p><strong>Company Name:</strong> ABC Pvt. Ltd.</p>
+            <p><strong>Address:</strong> 123 Main Street, City, Country</p>
+            <p><strong>Contact:</strong> +123 456 7890 | email@company.com</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header bg-success text-white">
+            Employees Details
+        </div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Designation</th>
+                        <th>Monthly Report</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>Manager</td>
+                        <td>Excellent</td>
+                    </tr>
+                    <tr>
+                        <td>Jane Smith</td>
+                        <td>Developer</td>
+                        <td>Good</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+  
+    <div class="card">
+        <div class="card-header bg-warning text-white">
+            Customer Details
+        </div>
+        <div class="card-body table-container">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Branch/Agency Name</th>
+                        <th>Customer Name</th>
+                        <th>Customer Number</th>
+                        <th>Mobile Number</th>
+                        <th>Area Name</th>
+                        <th>Change Suraksha Tube</th>
+                        <th>Change Regulator</th>
+                        <th>Online Safety Check</th>
+                        <th>Remarks</th>
+                    </tr>
+                </thead>
+                <tbody id="customerTable">
+                  
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+   
+    const customers = [
+        {
+            branch: "Main Branch",
+            name: "Alice Johnson",
+            number: "CUST001",
+            mobile: "+123456789",
+            area: "Downtown",
+            tube: "Yes",
+            regulator: "No",
+            safety: "Yes",
+            remarks: "Regular customer"
+        },
+        {
+            branch: "Sub Branch",
+            name: "Bob Williams",
+            number: "CUST002",
+            mobile: "+987654321",
+            area: "Uptown",
+            tube: "No",
+            regulator: "Yes",
+            safety: "No",
+            remarks: "Needs follow-up"
+        }
+    ];
+
+   
+    const customerTable = document.getElementById('customerTable');
+    customers.forEach(customer => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${customer.branch}</td>
+            <td>${customer.name}</td>
+            <td>${customer.number}</td>
+            <td>${customer.mobile}</td>
+            <td>${customer.area}</td>
+            <td>${customer.tube}</td>
+            <td>${customer.regulator}</td>
+            <td>${customer.safety}</td>
+            <td>${customer.remarks}</td>
+        `;
+        customerTable.appendChild(row);
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
